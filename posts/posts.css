@@ -2,14 +2,20 @@ body {
     background-color: #3a4d4d;
     text-align: center;
 }
-#title {
-    background-color: rebeccapurple;
+#back {
+    background-color: #475d5d;
     color: white;
     font-family: "Amiri Quran", serif;
     text-align: center;
     box-sizing: border-box;
-    border-radius: 1rem;
+    min-width: 35ch;
+    border-radius: 10px;
     width: 50%;
     margin: 0 auto;
-
+}
+#content {
+    color: #979797;
+}
+h4 {
+    text-align: left;
 }
