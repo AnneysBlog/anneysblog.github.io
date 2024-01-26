@@ -1,6 +1,7 @@
 body {
     background-color: #3a4d4d;
     text-align: center;
+    font-size: 24px;
 }
 #back {
     background-color: #475d5d;
@@ -12,6 +13,7 @@ body {
     border-radius: 10px;
     width: 50%;
     margin: 0 auto;
+    font-size: 16px;
 }
 #content {
     color: #979797;
