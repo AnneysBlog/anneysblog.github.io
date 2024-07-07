@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Anney's Vquiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a id="backToHome" href="../index.html">Back to index</a>
+    <div id="quizArea">
+        <div id="questionDiv">
+            <h2 id="question">I like hunting for my prey.</h2>
+        </div>
+        <div id="buttons">
+            <button id="stDisagree" onclick="Question(-1)">Strongly Disagree</button>
+            <button id="disagree" onclick="Question(-0.5)">Disagree</button>
+            <button id="agree" onclick="Question(0.5)">Agree</button>
+            <button id="stAgree" onclick="Question(1)">Strongly Agree</button>
+        </div>
+    </div>
+    <div id="results" hidden="hidden">
+        <h1>Results</h1>
+        <br>
+        <h4 id="dangerStat"></h4>
+        <h4 id="capacityStat"></h4>
+        <h4 id="speedStat"></h4>
+    </div>
+</body>
+</html>
+<script>
+    let boxQuestion = document.getElementById("question");
+    let number = 0;
+    //
+    //STATS
+    //
+
+    // is pred more endo or more deadly?
+    let danger          = 0;
+    // how much fits into this pred?
+    let capacity        = 0;
+    // how quick does this pred digest prey?
+    let digestion_speed = 0;
+
+    const questions = [
+        "I like hunting for my prey.", //danger
+        "I don't want my prey to be unharmed while inside me.", //danger
+        "I need multiple prey to still my hunger.", //capacity
+        "I don't want the time with my prey to be intimate.", //capacity
+        "I like the thrill of carrying multiple prey in me.", //capacity
+        "No prey ever escapes my gut alive.", //speed
+        "My prey \"expires\" quickly." //speed
+    ]
+    function Question(ans) {
+        if (number < questions.length -1) {
+            boxQuestion.innerHTML = questions[number+1];
+            if (number === 0 || number === 1) {
+                danger += ans;
+            }
+            if (number === 2 || number === 3 || number === 4) {
+                capacity += ans;
+            }
+            if (number === 5 || number === 6) {
+                digestion_speed += ans;
+            }
+            number++;
+        }
+        else {
+            //when finished
+            boxQuestion.innerHTML = "This should not be here.";
+            ShowResults();
+        }
+    }
+    function ShowResults() {
+        document.getElementById("quizArea").setAttribute('hidden', 'hidden');
+        document.getElementById("results").removeAttribute('hidden');
+
+        //show the actual stats
+        document.getElementById("dangerStat").innerHTML   = "Danger: " + danger;
+        document.getElementById("capacityStat").innerHTML = "Capacity: " + capacity;
+        document.getElementById("speedStat").innerHTML    = "Digestion speed: " + digestion_speed;
+    }
+</script>
+<noscript>
+    <h1>You don't have javascript enabled in your browser.</h1>
+</noscript>
+

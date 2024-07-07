@@ -24,3 +24,14 @@ footer {
 table {
     align-self: center;
 }
+#services {
+    background-color: #a59a69;
+    color: white;
+    font-family: "Amiri Quran", serif;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 25px;
+    width: 50%;
+    margin: 0 auto;
+    font-size: 32px;
+}

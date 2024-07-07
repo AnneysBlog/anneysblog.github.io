@@ -1,0 +1,32 @@
+body {
+    background-color: #6d8080;
+}
+#backToHome {
+    margin: 0 auto;
+    align-self: center;
+    text-align: center;
+    width: 55%;
+}
+#quizArea {
+    background-color: #7a52a1;
+    margin: 0 auto;
+    align-self: center;
+    width: 55%;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 25px;
+}
+#buttons {
+    margin: 0 auto;
+    text-align: center;
+    align-self: auto;
+}
+#results {
+    background-color: #6269d8;
+    margin: 0 auto;
+    align-self: center;
+    width: 55%;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 25px;
+}
