@@ -46,7 +46,7 @@
         "I like hunting for my prey.", //danger
         "I don't want my prey to be unharmed while inside me.", //danger
         "I need multiple prey to still my hunger.", //capacity
-        "I don't want the time with my prey to be intimate.", //capacity
+        "I want the time with my prey to be intimate.", //capacity
         "I like the thrill of carrying multiple prey in me.", //capacity
         "No prey ever escapes my gut alive.", //speed
         "My prey \"expires\" quickly." //speed
@@ -54,14 +54,33 @@
     function Question(ans) {
         if (number < questions.length -1) {
             boxQuestion.innerHTML = questions[number+1];
-            if (number === 0 || number === 1) {
-                danger += ans;
-            }
-            if (number === 2 || number === 3 || number === 4) {
-                capacity += ans;
-            }
-            if (number === 5 || number === 6) {
-                digestion_speed += ans;
+            switch (number) {
+                case 0:
+                    danger += ans;
+                    break;
+                case 1:
+                    danger += ans;
+                    digestion_speed += -ans;
+                    break;
+                case 2:
+                    capacity += ans;
+                    break;
+                case 3:
+                    capacity += -ans;
+                    danger += -(ans / 2);
+                    break;
+                case 4:
+                    capacity += ans;
+                    danger += (ans / 2);
+                    break;
+                case 5:
+                    danger += (ans * 1.5);
+                    digestion_speed += ans;
+                    break;
+                case 6:
+                    digestion_speed += (ans * 2.5);
+                    danger += (ans / 2);
+                    break;
             }
             number++;
         }
