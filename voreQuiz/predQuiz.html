@@ -44,6 +44,10 @@
     // how quick does this pred digest prey?
     let digestion_speed = 0;
 
+    const maxDanger   = 4.5;
+    const maxCapacity = 3;
+    const maxSpeed    = 2;
+
     const questions = [
         "I like hunting for my prey.", //danger
         "I don't want my prey to be unharmed while inside me.", //danger
@@ -96,10 +100,46 @@
         document.getElementById("quizArea").setAttribute('hidden', 'hidden');
         document.getElementById("results").removeAttribute('hidden');
 
-        //show the actual stats
-        document.getElementById("dangerStat").innerHTML   = "Danger: " + danger;
-        document.getElementById("capacityStat").innerHTML = "Capacity: " + capacity;
-        document.getElementById("speedStat").innerHTML    = "Digestion speed: " + digestion_speed;
+        let resDanger;
+        let resCapacity;
+        let resSpeed;
+
+        if (danger < 0) {
+            resDanger = ((danger / maxDanger) * 100) * -1;
+            document.getElementById("dangerStat").innerHTML = "Danger: " + Math.round(resDanger) + "% safe!";
+        }
+        else if (danger > 0) {
+            resDanger = ((danger / maxDanger) * 100);
+            document.getElementById("dangerStat").innerHTML = "Danger: " + Math.round(resDanger) + "% dangerous!";
+        }
+        else {
+            document.getElementById("dangerStat").innerHTML = "Danger: neutral";
+        }
+
+        if (capacity < 0) {
+            resCapacity = ((capacity / maxCapacity) * 100) * -1;
+            document.getElementById("capacityStat").innerHTML = "capacity: " + Math.round(resCapacity) + "% bottomless pit!";
+        }
+        else if (capacity > 0) {
+            resCapacity = ((capacity / maxCapacity) * 100);
+            document.getElementById("capacityStat").innerHTML = "capacity: " + Math.round(resCapacity) + "% single snack enjoyer!";
+        }
+        else {
+            document.getElementById("capacityStat").innerHTML = "capacity: neutral";
+        }
+
+        if (digestion_speed < 0) {
+            resSpeed = ((digestion_speed / maxSpeed) * 100) * -1;
+            document.getElementById("speedStat").innerHTML = "digestion speed: " + Math.round(resSpeed) + "% crusher!";
+        }
+        else if (digestion_speed > 0) {
+            resSpeed = ((digestion_speed / maxSpeed) * 100);
+            document.getElementById("speedStat").innerHTML = "digestion speed: " +  Math.round(resSpeed) + "% endo enjoyer!";
+        }
+        else {
+            document.getElementById("speedStat").innerHTML = "digestion speed: neutral";
+        }
+
     }
     function Restart() {
         location.reload();
