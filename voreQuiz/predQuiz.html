@@ -25,9 +25,11 @@
         <h4 id="capacityStat"></h4>
         <h4 id="speedStat"></h4>
         <p>( 0 means neutral result)</p>
+        <button id="restart" onclick="Restart()">Restart</button>
     </div>
 </body>
 </html>
+
 <script>
     let boxQuestion = document.getElementById("question");
     let number = 0;
@@ -98,6 +100,9 @@
         document.getElementById("dangerStat").innerHTML   = "Danger: " + danger;
         document.getElementById("capacityStat").innerHTML = "Capacity: " + capacity;
         document.getElementById("speedStat").innerHTML    = "Digestion speed: " + digestion_speed;
+    }
+    function Restart() {
+        location.reload();
     }
 </script>
 <noscript>
